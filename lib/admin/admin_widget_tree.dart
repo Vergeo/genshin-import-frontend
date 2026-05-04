@@ -32,7 +32,6 @@ class _AdminWidgetTreeState extends State<AdminWidgetTree> {
           appBar: AppBar(
             title: Text(
               pageTitles[selectedPage],
-              style: TextStyle(fontFamily: "Genshin"),
             ),
           ),
           body: pages[selectedPage],
