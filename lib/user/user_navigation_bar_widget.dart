@@ -17,8 +17,8 @@ class _UserNavigationBarWidgetState extends State<UserNavigationBarWidget> {
         return NavigationBar(
       destinations: [
         NavigationDestination(
-          icon: Icon(Icons.home), 
-          label: "Home"
+          icon: Icon(Icons.dashboard), 
+          label: "Dashboard"
         ),
         
         NavigationDestination(
