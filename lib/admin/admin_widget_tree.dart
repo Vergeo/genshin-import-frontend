@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:genshin_import/admin/admin_analytics.dart';
 import 'package:genshin_import/admin/admin_dashboard.dart';
 import 'package:genshin_import/admin/admin_items.dart';
-import 'package:genshin_import/admin/admin_navigation_bar_widget.dart';
+import 'package:genshin_import/admin/widgets/admin_navigation_bar_widget.dart';
 import 'package:genshin_import/admin/admin_profile.dart';
+import 'package:genshin_import/data/styles.dart';
 import 'package:genshin_import/data/notifiers.dart';
 
 class AdminWidgetTree extends StatefulWidget {
@@ -14,14 +14,9 @@ class AdminWidgetTree extends StatefulWidget {
 }
 
 class _AdminWidgetTreeState extends State<AdminWidgetTree> {
-  List pages = [
-    AdminDashboard(),
-    AdminAnalytics(),
-    AdminItems(),
-    AdminProfile(),
-  ];
+  List pages = [AdminDashboard(), AdminItems(), AdminProfile()];
 
-  List<dynamic> pageTitles = ["Dashboard", "Analytics", "Items", "Profile"];
+  List<dynamic> pageTitles = ["Dashboard", "Items", "Profile"];
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +27,16 @@ class _AdminWidgetTreeState extends State<AdminWidgetTree> {
           appBar: AppBar(
             title: Text(
               pageTitles[selectedPage],
+              style: TextStyle(color: GIStyle.text),
             ),
           ),
           body: pages[selectedPage],
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: GIStyle.bg,
+            foregroundColor: GIStyle.text,
+            child: Icon(Icons.add),
+          ),
           bottomNavigationBar: AdminNavigationBarWidget(),
         );
       },

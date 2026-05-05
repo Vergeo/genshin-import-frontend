@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:genshin_import/admin/admin_dashboard.dart';
 import 'package:genshin_import/admin/admin_widget_tree.dart';
+import 'package:genshin_import/data/notifiers.dart';
+import 'package:genshin_import/data/styles.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,7 +11,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _formKey = GlobalKey<FormState>();
   String username = "";
   String password = "";
 
@@ -20,15 +20,20 @@ class _LoginPageState extends State<LoginPage> {
       body: Padding(
         padding: EdgeInsets.all(32),
         child: Column(
+          spacing: 50,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Genshin Import", style: TextStyle(fontFamily: 'Genshin')),
-            Text("Username"),
-            TextFormField(),
-            Text("Password"),
-            TextFormField(),
+            Text(
+              "Genshin Import",
+              style: TextStyle(fontSize: 48, color: GIStyle.text),
+              textAlign: TextAlign.center,
+            ),
+            Column(children: [Text("Username"), TextFormField()]),
+            Column(children: [Text("Password"), TextFormField()]),
             ElevatedButton(
               onPressed: () {
+                selectedPageNotifier.value = 0;
+
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute<void>(
@@ -36,6 +41,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 );
               },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: GIStyle.subtext,
+                foregroundColor: GIStyle.lightBg,
+              ),
               child: Text("Login"),
             ),
           ],

@@ -24,10 +24,6 @@ class _AdminNavigationBarWidgetState extends State<AdminNavigationBarWidget> {
               label: "Dashboard",
             ),
             NavigationDestination(
-              icon: Icon(Icons.analytics),
-              label: "Analytics",
-            ),
-            NavigationDestination(
               icon: Icon(Icons.store_mall_directory_rounded),
               label: "Items",
             ),

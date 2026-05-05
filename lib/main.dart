@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:genshin_import/data/styles.dart';
 import 'package:genshin_import/login_page.dart';
-import 'package:genshin_import/user/user_dashboard.dart';
 import 'package:genshin_import/user/user_widget_tree.dart';
 
 void main() {
@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Genshin Import",
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: GIStyle.bg),
         fontFamily: "Genshin",
       ),
-      home: const UserWidgetTree(),
+      home: const LoginPage(),
     );
   }
 }
