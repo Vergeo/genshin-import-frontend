@@ -21,13 +21,15 @@ class _UserWidgetTreeState extends State<UserWidgetTree> {
     USerProfile()
   ];
   
+  List<dynamic> pageTitles = ["Dashboard", "Search", "History", "Profile"];
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: selectedPageNotifier,
       builder: (context, selectedPage, child) {
         return Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(title: Text(pageTitles[selectedPage]),),
           body: pages[selectedPage],
           bottomNavigationBar: UserNavigationBarWidget(),
         );
