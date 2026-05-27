@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: GIStyle.bg),
         fontFamily: "Genshin",
       ),
-      home: const LoginPage(),
+      home: const UserWidgetTree(),
     );
   }
 }

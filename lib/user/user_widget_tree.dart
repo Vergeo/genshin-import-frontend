@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:genshin_import/data/notifiers.dart';
 import 'package:genshin_import/user/user_dashboard.dart';
 import 'package:genshin_import/user/user_history.dart';
-import 'package:genshin_import/user/user_navigation_bar_widget.dart';
+import 'package:genshin_import/user/widgets/user_navigation_bar_widget.dart';
 import 'package:genshin_import/user/user_profile.dart';
 import 'package:genshin_import/user/user_search.dart';
 
@@ -18,7 +18,7 @@ class _UserWidgetTreeState extends State<UserWidgetTree> {
     UserDashboard(),
     UserSearch(),
     UserHistory(),
-    USerProfile()
+    UserProfile()
   ];
   
   List<dynamic> pageTitles = ["Dashboard", "Search", "History", "Profile"];

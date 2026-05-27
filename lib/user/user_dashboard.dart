@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:genshin_import/data/styles.dart';
 
 class UserDashboard extends StatefulWidget {
   const UserDashboard({super.key});
@@ -22,14 +23,12 @@ class _UserDashboardState extends State<UserDashboard> {
         padding: const EdgeInsets.all(20),
             
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,   //rata kiri
-
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 20,
           children: [
-            const Padding(padding: EdgeInsetsGeometry.directional(top: 10)),
-            const Text("Best-Selling", style: TextStyle(fontSize: 20),),
-            const SizedBox(height: 8),
-            // const Text('3. Carousel Image'),
-            const SizedBox(height: 4),
+            Text("Welcome, Buahlil", style: TextStyle(fontSize: 20),),
+            Text("Best-Selling", style: TextStyle(fontSize: 20),),
+
             CarouselSlider(
               items: carouselImages.map((url){
                 return Image.network(
@@ -43,6 +42,49 @@ class _UserDashboardState extends State<UserDashboard> {
                 autoPlayInterval: const Duration(seconds: 3),
                 viewportFraction: 1.0
               )
+            ),
+
+            Text("Newest Release", style: TextStyle(fontSize: 20),),
+
+            GridView.count(
+              crossAxisCount: 2,
+              childAspectRatio: 1,
+              crossAxisSpacing: 10,
+              shrinkWrap: true,
+              
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                Container(
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: Colors.black54.withAlpha(20),
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset("assets/images/asmoday.jpeg", fit: BoxFit.cover,),
+                      Center(child: Text("Name", style: GIStyle.header,)),
+                      Center(child: Text("\$10", style: GIStyle.subHeader)),
+                    ],
+                  ),
+                ),
+                Container(
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: Colors.black54.withAlpha(20),
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset("assets/images/asmoday.jpeg", fit: BoxFit.cover,),
+                      Center(child: Text("Name", style: GIStyle.header,)),
+                      Center(child: Text("\$10", style: GIStyle.subHeader)),
+                    ],
+                  ),
+                ),
+              ], 
             )
           ],
         ),
